@@ -1,0 +1,158 @@
+/* Universal Selector */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+}
+
+/* declare a variable with `--` syntax */
+:root {
+  --dark: #090979;
+  --light: #a2a2e6;
+  --radius: 50px;
+  --center: center;
+}
+
+/* Element Selectors */
+body {
+  background: linear-gradient(
+    to bottom,
+    #000dba,
+    #5340cb,
+    #7e6cd9,
+    #a597e7,
+    #cbc3f2,
+    #dcd7f7,
+    #eeebfb,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff
+  );
+}
+
+h1 {
+  text-align: var(--center);
+  padding-top: 0px;
+  font-size: 21px;
+}
+
+h2 {
+  font-size: 23px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 40px;
+  text-align: center;
+}
+
+P {
+  text-align: var(--center);
+}
+
+/* Removes default bullet points from lists */
+
+ol {
+  list-style: none;
+}
+
+ol li:hover {
+}
+
+li.active {
+}
+
+form {
+  display: block;
+  margin: 30px auto;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 23vw;
+  background-color: var(--light);
+  border-radius: 11px;
+  padding: 20px;
+  line-height: 2;
+}
+
+footer {
+  text-align: var(--center);
+  color: var(--dark);
+  font-size: 20px;
+
+  padding: 20px;
+}
+
+/* Class Selectors */
+.highscores {
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  margin: 25px 12px 12px 25px;
+  padding: 14px 34px;
+  text-align: left;
+}
+
+.timelapsed {
+  display: inline-block;
+  color: white;
+  font-size: 16px;
+  margin: 50px 12px 12px 70%;
+}
+
+.button {
+  border-radius: 11px;
+  display: inline-block;
+  background-color: var(--dark);
+  color: white;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 25px 11px 16px 20px;
+  padding: 14px 34px;
+  text-align: var(--center);
+  cursor: pointer;
+  margin-left: 43%;
+}
+
+.quiz {
+  text-align: var(--center);
+  font-size: 23px;
+  padding: 55px;
+}
+
+/* ID Selectors*/
+#answers {
+  text-align: var(--center);
+  color: var(--dark);
+}
+
+#submit {
+  border-radius: 11px;
+  text-align: var(--center);
+  background-color: var(--dark);
+  color: white;
+  font-size: 16px;
+  padding: 14px 34px;
+  margin: 12px auto;
+  cursor: pointer;
+}
+
+#final-highscores {
+}
+
+/* Media Querrie s*/
+
+/* Large smartphones - navbar changes color */
+@media screen and (max-width: 768px) {
+  .button {
+    font-size: 1rem;
+    margin: 16px 0px 0px 0px;
+    padding: 10px 15px;
+  }
+}
+
+/* Small smartphones - image placeholders change color */
+@media (max-width: 576px) {
+  .button {
+    font-size: 0.8rem;
+  }
+}

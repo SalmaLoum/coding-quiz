@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="highscores">HIGHSCORES</div>
+      <div class="timelapsed">
+        <p>Remaining Time: <span id="countdown">50</span></p>
+      </div>
+    </header>
+
+    <div class="intro">
+      <h1>Coding Quiz Challenge</h1>
+      <p>
+        try to answer the followning code-related questions within the time
+        limit. Keep in mind that incorrect answers will deduct your scoretime by
+        10 seconds!
+      </p>
+      <button class="button" id="start-quiz">Start Quiz</button>
+    </div>
+
+    <div class="quiz">
+      <div id="questions"></div>
+
+      <div id="answers"></div>
+    </div>
+
+    <form>
+      <div>score:<span id="score"></span></div>
+
+      <label for="initials"> </label>
+      <input type="text" name="name" id="initials" placeholder="name" />
+      <button id="submit">Submit</button>
+      <ol id="final-highscores">
+        <span><b>Highscores</b></span>
+      </ol>
+    </form>
+    <footer>
+      <h4>Thank you for playing</h4>
+      <p>© 2022 Salma Loum. All rights reserved</p>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
