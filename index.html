@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <div class="highscores">HIGHSCORES</div>
+      <button class="highscores">View highscores</button>
       <div class="timelapsed">
         <p>Remaining Time: <span id="countdown">50</span></p>
       </div>
@@ -18,11 +18,11 @@
     <div class="intro">
       <h1>Coding Quiz Challenge</h1>
       <p>
-        try to answer the followning code-related questions within the time
+        Try to answer the followning code-related questions within the time
         limit. Keep in mind that incorrect answers will deduct your scoretime by
         10 seconds!
       </p>
-      <button class="button" id="start-quiz">Start Quiz</button>
+      <button class="start-button" id="quiz-button">Start Quiz</button>
     </div>
 
     <div class="quiz">
@@ -38,7 +38,7 @@
       <input type="text" name="name" id="initials" placeholder="name" />
       <button id="submit">Submit</button>
       <ol id="final-highscores">
-        <span><b>Highscores</b></span>
+        <span><b>Highscores:</b></span>
       </ol>
     </form>
     <footer>

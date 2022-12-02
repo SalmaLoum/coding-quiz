@@ -33,23 +33,28 @@ body {
 }
 
 h1 {
-  text-align: var(--center);
-  padding-top: 0px;
-  font-size: 21px;
-}
-
-h2 {
   font-size: 23px;
   margin: 0 auto;
   max-width: 800px;
-  padding: 40px;
-  text-align: center;
+  padding: 20px;
+  text-align: var(--center);
 }
 
 P {
   text-align: var(--center);
+  padding: 20px;
+  font-size: 18px;
 }
 
+button:hover {
+  background-color: var(--dark);
+  color: white;
+  box-shadow: 0 0 10px black inset;
+}
+button:active {
+  background-color: white;
+  color: var(--dark);
+}
 /* Removes default bullet points from lists */
 
 ol {
@@ -63,14 +68,17 @@ li.active {
 }
 
 form {
-  display: block;
-  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 500px;
+  padding: 10px;
   text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 23vw;
   background-color: var(--light);
   border-radius: 11px;
-  padding: 20px;
   line-height: 2;
 }
 
@@ -85,21 +93,25 @@ footer {
 /* Class Selectors */
 .highscores {
   display: inline-block;
-  color: white;
+  border-radius: 11px;
+  color: var(--dark);
+  background-color: #dad5e8;
   font-size: 16px;
-  margin: 25px 12px 12px 25px;
+  margin: 25px 11px 16px 20px;
   padding: 14px 34px;
-  text-align: left;
+  cursor: pointer;
 }
 
 .timelapsed {
   display: inline-block;
   color: white;
   font-size: 16px;
-  margin: 50px 12px 12px 70%;
+  margin-left: 65%;
+  padding: 14px 34px;
 }
 
-.button {
+.start-button,
+#submit {
   border-radius: 11px;
   display: inline-block;
   background-color: var(--dark);
@@ -120,20 +132,15 @@ footer {
 }
 
 /* ID Selectors*/
-#answers {
-  text-align: var(--center);
-  color: var(--dark);
-}
-
 #submit {
-  border-radius: 11px;
-  text-align: var(--center);
-  background-color: var(--dark);
-  color: white;
   font-size: 16px;
   padding: 14px 34px;
   margin: 12px auto;
   cursor: pointer;
+}
+#answers {
+  text-align: left;
+  color: var(--dark);
 }
 
 #final-highscores {
@@ -148,11 +155,16 @@ footer {
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
+  form {
+  }
 }
 
 /* Small smartphones - image placeholders change color */
 @media (max-width: 576px) {
   .button {
     font-size: 0.8rem;
+  }
+  form {
+    width: 200px;
   }
 }
