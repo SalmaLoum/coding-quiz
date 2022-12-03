@@ -40,6 +40,14 @@ h1 {
   text-align: var(--center);
 }
 
+h4 {
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+  text-align: var(--center);
+  color: var(--dark);
+}
 P {
   text-align: var(--center);
   padding: 20px;
@@ -54,17 +62,6 @@ button:hover {
 button:active {
   background-color: white;
   color: var(--dark);
-}
-/* Removes default bullet points from lists */
-
-ol {
-  list-style: none;
-}
-
-ol li:hover {
-}
-
-li.active {
 }
 
 form {
@@ -142,12 +139,20 @@ footer {
   text-align: left;
   color: var(--dark);
 }
-
-#final-highscores {
+#answers button {
+  display: flex;
+  align-content: center;
+  background-color: var(--dark);
+  color: white;
+  font-size: 18px;
+  line-height: 15px;
+  text-align: center;
+  cursor: pointer;
+  margin: 20px;
+  padding: 20px;
 }
 
 /* Media Querrie s*/
-
 /* Large smartphones - navbar changes color */
 @media screen and (max-width: 768px) {
   .button {

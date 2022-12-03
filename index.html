@@ -9,9 +9,8 @@
   </head>
   <body>
     <header>
-      <button class="highscores">View highscores</button>
       <div class="timelapsed">
-        <p>Remaining Time: <span id="countdown">50</span></p>
+        <p>Remaining Time: <span id="countdown"></span></p>
       </div>
     </header>
 
@@ -29,20 +28,21 @@
       <div id="questions"></div>
 
       <div id="answers"></div>
+      <div class="responses"></div>
     </div>
-
-    <form>
-      <div>score:<span id="score"></span></div>
-
-      <label for="initials"> </label>
-      <input type="text" name="name" id="initials" placeholder="name" />
-      <button id="submit">Submit</button>
-      <ol id="final-highscores">
-        <span><b>Highscores:</b></span>
-      </ol>
-    </form>
-    <footer>
+    <div class="score-form">
+      <form id="form">
+        <div>score:<span id="score"></span></div>
+        <label for="initials"> </label>
+        <input type="text" name="name" id="initials" placeholder="name" />
+        <button type="submit" id="submit">Submit</button>
+        <ol id="final-highscores">
+          <span><b>Highscores:</b></span>
+        </ol>
+      </form>
       <h4>Thank you for playing</h4>
+    </div>
+    <footer>
       <p>© 2022 Salma Loum. All rights reserved</p>
     </footer>
     <script src="./script.js"></script>
