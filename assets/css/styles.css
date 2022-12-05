@@ -1,11 +1,9 @@
 /* Universal Selector */
 * {
-  margin: 0;
-  padding: 0;
   font-family: "Goudy Bookletter 1911", sans-serif;
 }
 
-/* declare a variable with `--` syntax */
+/* Variable */
 :root {
   --dark: #090979;
   --light: #a2a2e6;
@@ -14,6 +12,10 @@
 }
 
 /* Element Selectors */
+header {
+  padding: 20px;
+  margin: 20px;
+}
 body {
   background: linear-gradient(
     to bottom,
@@ -42,15 +44,13 @@ h1 {
 
 h4 {
   font-size: 18px;
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 20px;
+  margin: 20px auto;
   text-align: var(--center);
   color: var(--dark);
 }
 P {
   text-align: var(--center);
-  padding: 20px;
+
   font-size: 18px;
 }
 
@@ -79,12 +79,15 @@ form {
   line-height: 2;
 }
 
+form h4 {
+  color: #971613;
+}
+
 footer {
   text-align: var(--center);
   color: var(--dark);
-  font-size: 20px;
-
   padding: 20px;
+  margin: 20px;
 }
 
 /* Class Selectors */
@@ -101,7 +104,8 @@ footer {
 
 .timelapsed {
   display: inline-block;
-  color: white;
+  color: #971613;
+  font-weight: bolder;
   font-size: 16px;
   margin-left: 65%;
   padding: 14px 34px;
@@ -128,6 +132,20 @@ footer {
   padding: 55px;
 }
 
+.responses {
+  text-align: var(--center);
+  padding: 20px;
+  color: #971613;
+  font-weight: bolder;
+}
+.high-score {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.high-score:hover {
+  font-size: 110%;
+}
+
 /* ID Selectors*/
 #submit {
   font-size: 16px;
@@ -151,8 +169,22 @@ footer {
   margin: 20px;
   padding: 20px;
 }
+#answers button:hover {
+  background-color: var(--dark);
+  color: white;
+  box-shadow: 0 0 10px black inset;
+}
+#answers button:active {
+  background-color: white;
+  color: var(--dark);
+}
 
-/* Media Querrie s*/
+#final-highscores {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+/* Media Querries */
 /* Large smartphones - navbar changes color */
 @media screen and (max-width: 768px) {
   .button {

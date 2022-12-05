@@ -1,6 +1,5 @@
 /* Questions*/
-
-let questions = [
+var questions = [
   {
     question: "What is not an example of an HTML event? ",
     choiceA: "Webpage loading",
@@ -61,7 +60,7 @@ let questions = [
   },
 ];
 
-/* Varaibles*/
+/* Global Variables */
 var timerElement = document.querySelector("#countdown");
 var startButton = document.querySelector("#quiz-button");
 var startQuiz = document.querySelector(".intro");
@@ -71,25 +70,51 @@ var scoreForm = document.querySelector(".score-form");
 var answerPrompt = document.querySelector(".responses");
 var questionsIndex = 0;
 var scoreSave = document.querySelector("#form");
-var initalName = document.querySelector("#initials");
+var initialName = document.querySelector("#initials");
+var scores = document.querySelector("#initials");
 var timelapsed;
-var timerCountDown = 70;
-//saving the new initals to local storage
-var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+var timerCountDown = 60;
+var scoresArray = [];
 
-//Eventlistener for submiting initals
+//Saving new initials to local storage
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+console.log(highScores);
+// for loop console log each object, then each property of the object.
+
+function renderGames() {
+  for (var i = 0; i < scoresArray.length; i++) {
+    console.log(scoresArray[i]);
+    var highScores = document.createElement("li");
+    highScores.textContent =
+      scoresArray[i].initials + " " + scoresArray[i].score;
+    highscores.append(highScores);
+  }
+
+  //get local storage -
+  //change text content of highscore
+  console.log(scoresArray.length);
+}
+//change text content of highscore
+
+/* function storeGames() {
+  console.log(scoresArray);
+  localStorage.setItem("scoresArray", JSON.stringify(scoresArray));
+  console.log(scoresArray.length);
+} */
+
+//Eventlistener for submitting initials
 scoreSave.addEventListener("submit", function (event) {
   event.preventDefault();
   var info = {
-    initals: initalName.value,
+    initials: initialName.value.trim(),
     score: timerCountDown,
   };
   highScores.push(info);
-  //creating local storag in the browser
+  //Creating local storage in the browser
   localStorage.setItem("highScores", JSON.stringify(highScores));
 });
 
-// starting game and displaying only questions and answers after user clicks the startGame button
+// Starting game and displaying questions and answers only after user clicks the "start Game" button
 function startGame() {
   startQuiz.style.display = "none";
   scoreForm.style.display = "none";
@@ -97,6 +122,7 @@ function startGame() {
   displayAnswers();
   displayQuestions();
   timer();
+  renderGames();
 }
 
 //Starting the game
@@ -108,23 +134,24 @@ function displayQuestions() {
   questionsEl.textContent = questions[questionsIndex].question;
 }
 
-//validating the right answer & moving to the next question.
+//Validating the right answer & moving to the next question.
 function renderNextQuestion(event) {
   if (event.target.textContent == questions[questionsIndex].correct) {
     answerPrompt.innerHTML = "Correct Answer!";
   } else {
     answerPrompt.innerHTML = "Wrong Answer";
-    //deducting 10 seconds when wrong answers are clicked.
+    //Deducting 10 seconds when wrong answers are clicked.
     timerCountDown -= 10;
   }
-  //showing the scores after ending the quiz and hiding the questions, answers and Thank you for playing.
+
+  //Showing the scores after ending the quiz while hiding the questions & answers
   questionsIndex++;
   if (questionsIndex == questions.length) {
     scoreForm.style.display = "block";
     questionsEl.style.display = "none";
     answersEl.style.display = "none";
     answerPrompt.style.display = "none";
-    //stopping the times
+    //stopping the time
     clearInterval(timelapsed);
     return;
   }
@@ -163,13 +190,16 @@ function timer() {
     timerCountDown--;
     timerElement.textContent = timerCountDown;
     if (timerCountDown <= 0) {
+      answerPrompt.innerHTML = "You're out of time! Refresh and try again";
       scoreForm.style.display = "block";
       questionsEl.style.display = "none";
       answersEl.style.display = "none";
-      answerPrompt.style.display = "none";
+
       clearInterval(timelapsed);
-      answerPrompt.innerHTML = "You're out of time";
       return;
     }
   }, 1000);
 }
+
+// Add scores on the screen
+//Show highscore name list
