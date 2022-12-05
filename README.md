@@ -21,11 +21,15 @@ Go to [Coding Quiz Challenge](https://salmaloum.github.io/coding-quiz/) and star
 
 Click on the "Start Quiz" button to get through the questions as shown below:
 
-![Coding quiz challenge app](./Assets/images/app-demo.gif)
+![Coding quiz challenge app](./assets/images/app_1.png)
+
+If you answer incorrectly, the timer will deduct 10 seconds from your remaining time— alerting you that you got the wrong answer
+
+![application functions](./assets/images/app_2.png)
 
 Once you reached the last question, add your name to the Highscores list.
 
-![Highscores list](./Assets/images/app-demo.gif)
+![Highscores list](./assets/images/app_3.png)
 
 ## Credits
 

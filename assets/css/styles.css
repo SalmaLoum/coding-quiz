@@ -140,10 +140,13 @@ footer {
 }
 .high-score {
   font-size: 20px;
-  margin-bottom: 20px;
+  padding: 20px;
+  font-weight: bolder;
+  text-align: var(--center);
 }
 .high-score:hover {
   font-size: 110%;
+  color: white;
 }
 
 /* ID Selectors*/
@@ -153,6 +156,7 @@ footer {
   margin: 12px auto;
   cursor: pointer;
 }
+
 #answers {
   text-align: left;
   color: var(--dark);

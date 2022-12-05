@@ -71,47 +71,40 @@ var answerPrompt = document.querySelector(".responses");
 var questionsIndex = 0;
 var scoreSave = document.querySelector("#form");
 var initialName = document.querySelector("#initials");
-var scores = document.querySelector("#initials");
-var timelapsed;
-var timerCountDown = 60;
+var scores = document.querySelector("#final-highscores");
+var timeLapsed;
+var timerCountDown = 40;
 var scoresArray = [];
+var finalScore = document.querySelector(".high-score");
+var userScore = 0;
 
 //Saving new initials to local storage
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log(highScores);
-// for loop console log each object, then each property of the object.
 
-function renderGames() {
-  for (var i = 0; i < scoresArray.length; i++) {
-    console.log(scoresArray[i]);
-    var highScores = document.createElement("li");
-    highScores.textContent =
-      scoresArray[i].initials + " " + scoresArray[i].score;
-    highscores.append(highScores);
-  }
-
-  //get local storage -
-  //change text content of highscore
-  console.log(scoresArray.length);
+for (var i = 0; i < highScores.length; i++) {
+  var score = document.createElement("p");
+  score.textContent = highScores[i].initials + " " + highScores[i].score;
+  scores.append(score);
+  console.log(scores);
 }
-//change text content of highscore
-
-/* function storeGames() {
-  console.log(scoresArray);
-  localStorage.setItem("scoresArray", JSON.stringify(scoresArray));
-  console.log(scoresArray.length);
-} */
 
 //Eventlistener for submitting initials
 scoreSave.addEventListener("submit", function (event) {
   event.preventDefault();
   var info = {
     initials: initialName.value.trim(),
-    score: timerCountDown,
+    score: userScore,
   };
   highScores.push(info);
+
   //Creating local storage in the browser
   localStorage.setItem("highScores", JSON.stringify(highScores));
+  scores.innerHTML = "";
+  for (var i = 0; i < highScores.length; i++) {
+    var score = document.createElement("p");
+    score.textContent = highScores[i].initials + " " + highScores[i].score;
+    scores.append(score);
+  }
 });
 
 // Starting game and displaying questions and answers only after user clicks the "start Game" button
@@ -122,7 +115,6 @@ function startGame() {
   displayAnswers();
   displayQuestions();
   timer();
-  renderGames();
 }
 
 //Starting the game
@@ -138,6 +130,7 @@ function displayQuestions() {
 function renderNextQuestion(event) {
   if (event.target.textContent == questions[questionsIndex].correct) {
     answerPrompt.innerHTML = "Correct Answer!";
+    userScore++;
   } else {
     answerPrompt.innerHTML = "Wrong Answer";
     //Deducting 10 seconds when wrong answers are clicked.
@@ -152,7 +145,8 @@ function renderNextQuestion(event) {
     answersEl.style.display = "none";
     answerPrompt.style.display = "none";
     //stopping the time
-    clearInterval(timelapsed);
+    finalScore.textContent = "Your score is : " + userScore;
+    clearInterval(timeLapsed);
     return;
   }
 
@@ -186,20 +180,18 @@ function displayAnswers() {
 
 //Timer to count down and stop when reaching 0
 function timer() {
-  timelapsed = setInterval(function () {
+  timeLapsed = setInterval(function () {
     timerCountDown--;
     timerElement.textContent = timerCountDown;
     if (timerCountDown <= 0) {
       answerPrompt.innerHTML = "You're out of time! Refresh and try again";
+      finalScore.textContent = "Your score is : " + userScore;
       scoreForm.style.display = "block";
       questionsEl.style.display = "none";
       answersEl.style.display = "none";
 
-      clearInterval(timelapsed);
+      clearInterval(timeLapsed);
       return;
     }
   }, 1000);
 }
-
-// Add scores on the screen
-//Show highscore name list

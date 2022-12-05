@@ -17,14 +17,15 @@
     <div class="intro">
       <h1>Coding Quiz Challenge</h1>
       <p>
-        Try to answer the followning code-related questions within the time
-        limit. Keep in mind that incorrect answers will deduct your scoretime by
-        10 seconds!
+        Try to answer the following code-related questions within the time
+        limit. Keep in mind that incorrect answers will deduct your score time
+        by 10 seconds!
       </p>
       <button class="start-button" id="quiz-button">Start Quiz</button>
     </div>
 
     <div class="quiz">
+      
       <div id="questions"></div>
 
       <div id="answers"></div>
@@ -33,18 +34,17 @@
     <div class="score-form">
       <form id="form">
         <h4>All done!</h4>
-        <span class="high-score"><p>Your final high score is:</p></span>
-        <p>
-          Please write your initials for scoreboard<span
-            id="score-final"
-          ></span>
-        </p>
-        <label for="initials"> </label>
-        <input type="text" name="name" id="scores" placeholder="Initials" />
+        <span class="high-score"> Your score is: </span>
+        <span id="score-final">
+          <p>Please write your initials for scoreboard</p>
+        </span>
+
+        <label form="initials"> </label>
+        <input type="text" name="name" id="initials" placeholder="Initials" />
         <button type="submit" id="submit">Submit</button>
-        <ol id="final-highscores">
+        <div id="final-highscores">
           <p>highscores list:</p>
-        </ol>
+        </div>
       </form>
       <h4>Thank you for playing</h4>
     </div>
